@@ -1,4 +1,4 @@
-package com.kaizen.pms.pms;
+package com.kaizen.pms;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
