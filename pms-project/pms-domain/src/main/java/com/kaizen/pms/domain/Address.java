@@ -2,6 +2,11 @@ package com.kaizen.pms.domain;
 
 import com.kaizen.pms.domain.enums.AddressType;
 
+/**
+ * 
+ * @author Denver
+ *
+ */
 public class Address {
 
 	private String street1;
