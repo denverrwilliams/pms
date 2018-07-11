@@ -5,6 +5,7 @@ import com.kaizen.pms.domain.enums.AddressType;
 /**
  * 
  * @author Denver
+ * 
  *
  */
 public class Address {
