@@ -1,8 +1,7 @@
 package com.kaizen.pms.domain;
 
-public class Organization extends Party{
+public class Organization extends Party {
 
-	protected String organizationName;
 	
 	/**
 	 * Constructor with Parameters
@@ -11,15 +10,19 @@ public class Organization extends Party{
 	 */
 	public Organization(String organizationName) {
 		
-		this.organizationName = organizationName;
+		super(new Name.NameBuilder().organizationName(organizationName).build(),
+				new PartyType(Party.PARTY_TYPE_ORGANIZATION));
+		
+	}
+	
+	public Organization(String organizationName, PartyType type) {
+		
+		super(new Name.NameBuilder().organizationName(organizationName).build(), type);
+		
 	}
 
 	public String getOrganizationName() {
-		return organizationName;
-	}
-
-	public void setOrganizationName(String organizationName) {
-		this.organizationName = organizationName;
+		return this.name.getOrganizationName();
 	}
 	
 }

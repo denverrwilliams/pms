@@ -1,31 +1,31 @@
 package com.kaizen.pms.domain;
 
-import com.kaizen.pms.domain.enums.EmailType;
-
 public class EmailAddress {
+	
+	public final static String EMAIL_TYPE_OTHER  = "EmailOther";
+	public final static String EMAIL_TYPE_MOBILE = "EmailMobile";
+	public final static String EMAIL_TYPE_WORK   = "EmailWork";
+	public final static String EMAIL_TYPE_HOME   = "EmailHome";
 	
 	private String email;
 	private EmailType type;
 
-	/**
-	 * Default Constructor
-	 */
-	public EmailAddress() {}
+	public EmailAddress(String email) {
+		this.type = new EmailType(EMAIL_TYPE_MOBILE);
+		this.email = email;
+	}
+	
+	public EmailAddress(EmailType type, String email) {
+		this.type = type;
+		this.email = email;
+	}
 
 	public String getEmail() {
 		return email;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
 	public EmailType getType() {
 		return type;
-	}
-
-	public void setType(EmailType type) {
-		this.type = type;
 	}
 	
 }
