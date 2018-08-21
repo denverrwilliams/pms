@@ -7,6 +7,10 @@ public class Money {
 	private double cost;
 	private MoneyType moneyType = MoneyType.MONEY_USD;
 	
+	public Money() {
+		
+	}
+	
 	public Money(double cost) {
 		this.cost = cost;
 	}
@@ -23,6 +27,17 @@ public class Money {
 	public MoneyType getMoneyType() {
 		return moneyType;
 	}
-
 	
+	
+	public Money add(Money obj) {
+		if (this == obj)
+			return this;
+		if (obj == null)
+			return this;
+		
+		Money other = (Money) obj;
+		this.cost +=other.cost;
+		
+		return this;
+	}
 }

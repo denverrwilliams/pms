@@ -20,6 +20,7 @@ public class Party {
 	public final static String PARTY_TYPE_PER_PARENT = "PerParent";
 	public final static String PARTY_TYPE_PER_GUARDIAN = "PerGuardian";
 	
+	protected long partyId;
 	protected Name name;
 	protected PartyType partyType;
 	protected List<Address> addresses = new ArrayList<Address>();	
@@ -117,6 +118,10 @@ public class Party {
 	
 	public List<EmailAddress> getEmails() {
 		return emails;
+	}
+
+	public long getPartyId() {
+		return partyId;
 	}
 	
 }

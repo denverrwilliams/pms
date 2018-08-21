@@ -1,6 +1,8 @@
 package com.kaizen.pms.business.registration;
 
 import com.kaizen.pms.domain.Accountability;
+import com.kaizen.pms.domain.model.event.Registration;
+import com.kaizen.pms.domain.model.event.ShoppingCart;
 
 public class SeasonRegistrationFacade {
 	
@@ -9,11 +11,19 @@ public class SeasonRegistrationFacade {
 		
 		// validation
 		
-		// perform registration 
+		// create season registration
+		Registration reg = new Registration(accountability.getSoccerSeason().getEventId(), 
+				accountability.getChild().getPartyId(), 
+				accountability.getAccount().getAccountId());
+		accountability.setRegistration(reg);
+		
+		// Add Soccer Season Event Line Item to Order
+		// computer and update shopping cart balance
+		ShoppingCart cart = new ShoppingCart();
+		cart.addLineItem(accountability.getSoccerSeason());
+		
 		/*
 		 * persist to database
-		 * add item to shopping cart
-		 * computer and update shopping cart balance
 		 */
 		
 		// generate invoice

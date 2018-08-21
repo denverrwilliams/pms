@@ -1,5 +1,7 @@
 package com.kaizen.pms.domain;
 
+import com.kaizen.pms.domain.model.event.FamilyAccount;
+import com.kaizen.pms.domain.model.event.Registration;
 import com.kaizen.pms.domain.model.event.SoccerSeason;
 
 /**
@@ -20,7 +22,13 @@ public class Accountability {
 	//private AccountabilityType type;
 	private ConnectionAccountabilityType type;
 	private SoccerSeason soccerSeason;
+	private FamilyAccount account;
+	private Registration registration;
 	
+	public FamilyAccount getAccount() {
+		return account;
+	}
+
 	public static Accountability create(Party parent, Party child, ConnectionAccountabilityType type) {
 		
 		if(!canCreate(parent, child, type)) {
@@ -70,6 +78,14 @@ public class Accountability {
 
 	public void setSoccerSeason(SoccerSeason soccerSeason) {
 		this.soccerSeason = soccerSeason;
+	}
+
+	public Registration getRegistration() {
+		return registration;
+	}
+
+	public void setRegistration(Registration registration) {
+		this.registration = registration;
 	}
 	
 }

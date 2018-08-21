@@ -12,12 +12,18 @@ public class Event {
 	public final static String EVENT_TYPE_SOCCER_TOURNAMENT = "EventSoccerTournament";
 	public final static String EVENT_TYPE_SOCCER_CAMP       = "EventSoccerCamp";
 	
+	protected long eventId;
+	public long getEventId() {
+		return eventId;
+	}
+
 	protected EventType type;
 	protected String eventName;
 	protected Date startDate;
 	protected Date endDate;
 
-	protected MoneyType cost;
+	protected Money price;
+	protected String sku;
 	
 	public Event(EventType type, String name, Date start, Date end) {
 		this.type = type;
@@ -38,12 +44,20 @@ public class Event {
 		return endDate;
 	}
 
-	public MoneyType getCost() {
-		return cost;
+	public Money getPrice() {
+		return price;
 	}
 
-	public void setCost(MoneyType cost) {
-		this.cost = cost;
+	public void setPrice(Money price) {
+		this.price = price;
+	}
+
+	public String getSku() {
+		return sku;
+	}
+
+	public void setSku(String sku) {
+		this.sku = sku;
 	}
 	
 }
