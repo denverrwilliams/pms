@@ -19,13 +19,14 @@ public class Event {
 
 	protected EventType type;
 	protected String eventName;
+	protected String description;
 	protected Date startDate;
 	protected Date endDate;
 
 	protected Money price;
 	protected String sku;
 	
-	public Event(EventType type, String name, Date start, Date end) {
+	public Event(EventType type, String name, String desc, Date start, Date end) {
 		this.type = type;
 		this.eventName = name;
 		this.startDate = start;
@@ -34,6 +35,10 @@ public class Event {
 
 	public String getEventName() {
 		return eventName;
+	}
+	
+	public String getDescription() {
+		return description;
 	}
 
 	public Date getStartDate() {
