@@ -1,8 +1,8 @@
 package com.kaizen.pms.domain;
 
+import com.kaizen.pms.domain.model.event.Event;
 import com.kaizen.pms.domain.model.event.FamilyAccount;
 import com.kaizen.pms.domain.model.event.Registration;
-import com.kaizen.pms.domain.model.event.SoccerSeason;
 
 /**
  * This construct allows us to capture relationships between a number of entities.
@@ -16,12 +16,12 @@ public class Accountability {
 	
 	public static final String ACCNT_TYP_REG_SEASON    = "AccntRegistrationSeason";
 	public static final String ACCNT_TYP_REG_TOURNAMET = "AccntRegistrationTournament";
+	public static final String ACCNT_TYP_REG_TRYOUT    = "AccntRegistrationTryout";
 
 	private Party parent;
 	private Party child;
-	//private AccountabilityType type;
 	private ConnectionAccountabilityType type;
-	private SoccerSeason soccerSeason;
+	private Event event;
 	private FamilyAccount account;
 	private Registration registration;
 	
@@ -72,12 +72,12 @@ public class Accountability {
 		return type.canCreateAccountability(parent, child);
 	}
 
-	public SoccerSeason getSoccerSeason() {
-		return soccerSeason;
+	public Event getEvent() {
+		return event;
 	}
 
-	public void setSoccerSeason(SoccerSeason soccerSeason) {
-		this.soccerSeason = soccerSeason;
+	public void setEvent(Event event) {
+		this.event = event;
 	}
 
 	public Registration getRegistration() {

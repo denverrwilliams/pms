@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.kaizen.pms.utilities.CalendarUtils;
+
 public class Player extends Person {
 
 	private String playerId;
@@ -11,7 +13,19 @@ public class Player extends Person {
 	private String competitionLevel;
 	private String registrationStatus;
 	private String profilePicture;
+	private long yearOfBirth;
+	private Address placeOfBirth;
+	private String nationality;
 	private List<PlayerPosition> positions = new ArrayList<PlayerPosition>();
+	private List<PlayerHistory> historyList = new ArrayList<PlayerHistory>();
+	
+	// Education
+	private long graduationYear;
+	private double gpa;
+	private double sat;
+	
+	// Disciplinary Record
+	private List<Infraction> infractions = new ArrayList<Infraction>();
 	
 	private Affiliation affiliation;
 	private School school;
@@ -29,56 +43,83 @@ public class Player extends Person {
 		this.competitionLevel = builder.competitionLevel;
 		this.profilePicture = builder.profilePicture;
 		this.registrationStatus = builder.registrationStatus;
+		this.yearOfBirth = CalendarUtils.getYear(builder.dateOfBirth);
+		this.graduationYear = builder.graduationYear;
+		this.gpa = builder.gpa;
+		this.sat = builder.sat;
+		this.placeOfBirth = builder.placeOfBirth;
+		this.nationality = builder.nationality;
 				
 		if( builder.positions!=null && !builder.positions.isEmpty() ) {
 			this.positions.addAll( builder.positions );
 		}
-		
 		if( builder.addresses!=null && !builder.addresses.isEmpty() ) {
 			this.addresses.addAll( builder.addresses );
 		}
-		
 		if( builder.emails!=null && !builder.emails.isEmpty() ) {
 			this.emails.addAll( builder.emails );
 		}
-		
 		if( builder.phones!=null && !builder.phones.isEmpty() ) {
 			this.phones.addAll( builder.phones );
+		}
+		if( builder.phones!=null && !builder.phones.isEmpty() ) {
+			this.phones.addAll( builder.phones );
+		}
+		if( builder.historyList!=null && !builder.historyList.isEmpty() ) {
+			this.historyList.addAll( builder.historyList );
+		}
+		if( builder.infractions!=null && !builder.infractions.isEmpty() ) {
+			this.infractions.addAll( builder.infractions );
 		}
 	}
 		
 	public String getPlayerId() {
 		return playerId;
 	}
-
 	public String getJerseyNumber() {
 		return jerseyNumber;
 	}
-
 	public String getCompetitionLevel() {
 		return competitionLevel;
 	}
-
 	public String getRegistrationStatus() {
 		return registrationStatus;
 	}
-
 	public String getProfilePicture() {
 		return profilePicture;
 	}
-
 	public List<PlayerPosition> getPositions() {
 		return positions;
 	}
-
 	public Affiliation getAffiliation() {
 		return affiliation;
 	}
-
 	public School getSchool() {
 		return school;
 	}
+	public long getYearOfBirth() {
+		return yearOfBirth;
+	}
+	public long getGraduationYear() {
+		return graduationYear;
+	}
+	public double getGpa() {
+		return gpa;
+	}
+	public double getSat() {
+		return sat;
+	}
+	public List<PlayerHistory> getHistoryList() {
+		return historyList;
+	}
+	public Address getPlaceOfBirth() {
+		return placeOfBirth;
+	}
+	public String getNationality() {
+		return nationality;
+	}
 
+	
 	//Builder Class
 	public static class PlayerBuilder{
 
@@ -95,12 +136,21 @@ public class Player extends Person {
 		private String competitionLevel;
 		private String registrationStatus;
 		private String profilePicture;
+		private Address placeOfBirth;
+		private String nationality;
+		
+		private int graduationYear;
+		private double gpa;
+		private double sat;
+		
 		private List<Address> addresses = new ArrayList<Address>();
 		private List<PlayerPosition> positions = new ArrayList<PlayerPosition>();
-		protected List<EmailAddress> emails = new ArrayList<EmailAddress>();
-		protected List<PhoneNumber> phones = new ArrayList<PhoneNumber>();
+		private List<EmailAddress> emails = new ArrayList<EmailAddress>();
+		private List<PhoneNumber> phones = new ArrayList<PhoneNumber>();
+		private List<PlayerHistory> historyList = new ArrayList<PlayerHistory>();
+		private List<Infraction> infractions = new ArrayList<Infraction>();
 		
-		private Affiliation affiliation;
+		private Affiliation affiliations;
 		private School school;
 		
 		public PlayerBuilder(String firstName, String middleName, String lastName,
@@ -130,6 +180,18 @@ public class Player extends Person {
 		}
 		public PlayerBuilder registrationStatus(String registrationStatus) {
 			this.registrationStatus = registrationStatus;
+			return this;
+		}		
+		public PlayerBuilder graduationYear(int graduationYear) {
+			this.graduationYear = graduationYear;
+			return this;
+		}
+		public PlayerBuilder gpa(double gpa) {
+			this.gpa = gpa;
+			return this;
+		}
+		public PlayerBuilder sat(double sat) {
+			this.sat = sat;
 			return this;
 		}		
 		public PlayerBuilder addresses(List<Address> addresses) {
@@ -174,13 +236,45 @@ public class Player extends Person {
 			}
 			return this;
 		}
-		public PlayerBuilder email(PhoneNumber phone) {
+		public PlayerBuilder phone(PhoneNumber phone) {
 			if(phone!=null) {
 				this.phones.add(phone);
 			}
 			return this;
 		}
-				
+		public PlayerBuilder history(PlayerHistory history) {
+			if(history!=null) {
+				this.historyList.add(history);
+			}
+			return this;
+		}
+		public PlayerBuilder historyList(List<PlayerHistory> historyList) {
+			if( historyList!=null && !historyList.isEmpty() ) {
+				this.historyList.addAll(historyList);
+			}
+			return this;
+		}
+		public PlayerBuilder placeOfBirth(Address placeOfBirth) {
+			this.placeOfBirth = placeOfBirth;
+			return this;
+		}
+		public PlayerBuilder nationality(String nationality) {
+			this.nationality = nationality;
+			return this;
+		}		
+		public PlayerBuilder infraction(Infraction infraction) {
+			if(infraction!=null) {
+				this.infractions.add(infraction);
+			}
+			return this;
+		}
+		public PlayerBuilder infractions(List<Infraction> infractions) {
+			if( infractions!=null && !infractions.isEmpty() ) {
+				this.infractions.addAll(infractions);
+			}
+			return this;
+		}
+		
 		public Player build(){
 			return new Player(this);
 		}

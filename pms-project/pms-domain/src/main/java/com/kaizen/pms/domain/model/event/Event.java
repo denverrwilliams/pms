@@ -3,7 +3,6 @@ package com.kaizen.pms.domain.model.event;
 import java.util.Date;
 
 import com.kaizen.pms.domain.EventType;
-import com.kaizen.pms.domain.enums.MoneyType;
 
 public class Event {
 	
@@ -11,11 +10,9 @@ public class Event {
 	public final static String EVENT_TYPE_SOCCER_GAME       = "EventSoccerGame";
 	public final static String EVENT_TYPE_SOCCER_TOURNAMENT = "EventSoccerTournament";
 	public final static String EVENT_TYPE_SOCCER_CAMP       = "EventSoccerCamp";
+	public final static String EVENT_TYPE_SOCCER_TRYOUT     = "EventTryout";
 	
 	protected long eventId;
-	public long getEventId() {
-		return eventId;
-	}
 
 	protected EventType type;
 	protected String eventName;
@@ -33,6 +30,10 @@ public class Event {
 		this.endDate = end;
 	}
 
+	public long getEventId() {
+		return eventId;
+	}
+	
 	public String getEventName() {
 		return eventName;
 	}
@@ -53,16 +54,8 @@ public class Event {
 		return price;
 	}
 
-	public void setPrice(Money price) {
-		this.price = price;
-	}
-
 	public String getSku() {
 		return sku;
-	}
-
-	public void setSku(String sku) {
-		this.sku = sku;
 	}
 	
 }

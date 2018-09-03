@@ -12,8 +12,8 @@ public class SoccerGame extends Event {
 
 	private Score score;
 	
-	public SoccerGame(EventType type, String name, Date start, Date end) {
-		super(type, name, start, end);
+	public SoccerGame(EventType type, String name, String desc, Date start, Date end) {
+		super(type, name, desc, start, end);
 		
 	}
 

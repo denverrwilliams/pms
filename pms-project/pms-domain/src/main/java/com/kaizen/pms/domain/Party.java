@@ -23,6 +23,7 @@ public class Party {
 	protected long partyId;
 	protected Name name;
 	protected PartyType partyType;
+	protected String website;
 	protected List<Address> addresses = new ArrayList<Address>();	
 	protected List<PhoneNumber> phones = new ArrayList<PhoneNumber>();
 	protected List<EmailAddress> emails = new ArrayList<EmailAddress>();

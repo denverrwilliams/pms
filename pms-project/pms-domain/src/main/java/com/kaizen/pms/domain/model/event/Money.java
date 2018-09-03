@@ -1,11 +1,13 @@
 package com.kaizen.pms.domain.model.event;
 
-import com.kaizen.pms.domain.enums.MoneyType;
-
 public class Money {
 	
+	public final static String MONEY_TYPE_USD = "USD";  // "US Dollars"
+	public final static String MONEY_TYPE_BP  = "BP";   // "British Pound"
+	public final static String MONEY_TYPE_CAD = "CAD";  // "Canadian Dollars"
+	
 	private double cost;
-	private MoneyType moneyType = MoneyType.MONEY_USD;
+	private MoneyType moneyType = new MoneyType("USD", "US Dollars");
 	
 	public Money() {
 		

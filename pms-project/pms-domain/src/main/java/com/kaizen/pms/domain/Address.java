@@ -7,11 +7,12 @@ package com.kaizen.pms.domain;
  */
 public class Address {
 
-	public final static String ADDR_TYPE_PERMAMENT    = "AddrPermament";
-	public final static String ADDR_TYPE_MAILING      = "AddrMailing";
-	public final static String ADDR_TYPE_ORGANIZATION = "AddrOrganization";
-	public final static String ADDR_TYPE_WORK         = "AddrWork";
-	public final static String ADDR_TYPE_HOME         = "AddrHome";
+	public final static String ADDR_TYPE_PERMAMENT      = "AddrPermament";
+	public final static String ADDR_TYPE_MAILING        = "AddrMailing";
+	public final static String ADDR_TYPE_ORGANIZATION   = "AddrOrganization";
+	public final static String ADDR_TYPE_WORK           = "AddrWork";
+	public final static String ADDR_TYPE_HOME           = "AddrHome";
+	public final static String ADDR_TYPE_PLACE_OF_BIRTH = "AddrPlaceOfBirth";
 	
 	private String street1;
 	private String street2;

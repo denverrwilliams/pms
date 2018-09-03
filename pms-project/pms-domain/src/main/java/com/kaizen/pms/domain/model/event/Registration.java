@@ -4,13 +4,15 @@ public class Registration {
 	
 	private long registrationId;
 	
-	private long soccerSeasonEventId;
+	private long eventId;
+	private long parentId;
 	private long playerId;
 	private long accountId;
 	
-	public Registration(long soccerSeasonEventId, long playerId, long accountId) {
-		this.soccerSeasonEventId = soccerSeasonEventId;
+	public Registration(long eventId, long parentId, long playerId, long accountId) {
+		this.eventId = eventId;
 		this.playerId = playerId;
+		this.parentId = parentId;
 		this.accountId = accountId;
 	}
 
@@ -22,8 +24,12 @@ public class Registration {
 		this.registrationId = registrationId;
 	}
 
-	public long getSoccerSeasonEventId() {
-		return soccerSeasonEventId;
+	public long getEventId() {
+		return eventId;
+	}
+
+	public long getParentId() {
+		return parentId;
 	}
 
 	public long getPlayerId() {
