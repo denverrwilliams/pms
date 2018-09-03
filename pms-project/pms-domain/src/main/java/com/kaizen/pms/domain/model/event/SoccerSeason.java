@@ -8,6 +8,7 @@ import com.kaizen.pms.domain.EventType;
 
 public class SoccerSeason extends Event {
 	
+	private int birthYear;
 	private String ageGroup;
 	private int maxRegistrationAllowed;
 	private int minRegistrationAllowed;
@@ -28,6 +29,7 @@ public class SoccerSeason extends Event {
 		this.price = builder.price;
 		this.sku = builder.sku;
 		this.ageGroup = builder.ageGroup;
+		this.birthYear = builder.birthYear;
 		this.maxRegistrationAllowed = builder.maxRegistrationAllowed;
 		this.minRegistrationAllowed = builder.minRegistrationAllowed;
 		this.overBookedRegistrationCount = builder.overBookedRegistrationCount;
@@ -37,27 +39,24 @@ public class SoccerSeason extends Event {
 	public String getAgeGroup() {
 		return ageGroup;
 	}
-
+	public int getBirthYear() {
+		return birthYear;
+	}
 	public int getMaxRegistrationAllowed() {
 		return maxRegistrationAllowed;
 	}
-
 	public int getMinRegistrationAllowed() {
 		return minRegistrationAllowed;
 	}
-
 	public int getOverBookedRegistrationCount() {
 		return overBookedRegistrationCount;
 	}
-
 	public int getRegistrationCount() {
 		return registrationCount;
 	}
-
 	public List<SoccerGame> getGames() {
 		return games;
 	}
-
 	public void setGames(List<SoccerGame> games) {
 		this.games = games;
 	}
@@ -77,6 +76,7 @@ public class SoccerSeason extends Event {
 		private String sku;
 		
 		private String ageGroup;
+		private int birthYear;
 		private int maxRegistrationAllowed;
 		private int minRegistrationAllowed;
 		private int overBookedRegistrationCount;
@@ -102,6 +102,10 @@ public class SoccerSeason extends Event {
 		}
 		public SoccerSeasonBuilder ageGroup(String ageGroup) {
 			this.ageGroup = ageGroup;
+			return this;
+		}
+		public SoccerSeasonBuilder birthYear(int birthYear) {
+			this.birthYear = birthYear;
 			return this;
 		}
 		public SoccerSeasonBuilder maxRegistrationAllowed(int maxRegistrationAllowed) {
