@@ -10,13 +10,11 @@ public class SoccerClub extends Organization {
 	private List<SoccerSeason> seasonRegistrations = new ArrayList<>();
 	
 	
-	public SoccerClub(String clubName) {
-		
+	public SoccerClub(String clubName) {		
 		super(clubName, new PartyType(Party.PARTY_TYPE_ORG_SOCCER_CLUB));
 	}
 	
-	public SoccerClub(String clubName, PartyType type) {
-		
+	public SoccerClub(String clubName, PartyType type) {		
 		super(clubName, type);
 	}
 	
@@ -42,5 +40,18 @@ public class SoccerClub extends Organization {
 		if(soccerSeason!=null) {
 			seasonRegistrations.add(soccerSeason);
 		}
+	}
+	
+	public SoccerSeason getSeasonRegistration(int birthYear) {
+		
+		SoccerSeason result = null;
+		for(SoccerSeason elm :seasonRegistrations) {
+			if (elm.getBirthYear() == birthYear) {
+				result = elm;
+				break;
+			}
+		}
+		
+		return result;
 	}
 }
